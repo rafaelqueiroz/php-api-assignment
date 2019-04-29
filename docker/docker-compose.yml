@@ -1,0 +1,13 @@
+php:
+    container_name: api-php
+    build: ./php/
+    ports:
+        - 8805:80
+    volumes_from:
+        - api
+api:
+    image: php:7.3-apache
+    container_name: api
+    volumes:
+        - ../:/var/www/html
+    command: "true"
