@@ -79,6 +79,14 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->bind(
+    \GuzzleHttp\Client::class,
+    function () {
+        return new \GuzzleHttp\Client(['base_url' => env('API_BASE_URL')]);
+    }
+    );
+$app->register(App\Providers\NCAPClientProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------
