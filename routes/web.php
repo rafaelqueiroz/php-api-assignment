@@ -11,6 +11,5 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/vehicles/{modelYear}/{manufacturer}/{model}', 'VehicleController@index');
+$router->post('/vehicles', 'VehicleController@index');
